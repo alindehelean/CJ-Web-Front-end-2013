@@ -1,5 +1,5 @@
-// functie constructor - clasa cu ajutor ei face obiect de tip Post
-// este ca o macheta cu ajutor carei face mai multe obiecte
+// functie constructor - clasa cu ajutorul careia se creeaza un obiect de tip Post
+// este ca o macheta cu ajutorul careia se creeaza mai multe obiecte
 function Post(id, author, date, title, text) {
   this.id = id
   this.author = author;
