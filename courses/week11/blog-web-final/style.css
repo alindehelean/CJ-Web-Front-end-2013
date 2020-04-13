@@ -1,0 +1,110 @@
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.header {
+  width: 100%;
+  height: 50px;
+  padding-left: 20px;
+  background: white;
+  border-bottom: 1px solid #dee2e6;
+  box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
+  display: flex;
+  align-items: center;
+}
+
+.header-buttons {
+  background: #007bff;
+  color: white;
+  margin-left: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.post {
+  margin: 20px;
+  border-bottom: 2px solid lightgray;
+}
+
+.post-header h1,
+.post-header p {
+  margin-bottom: 0px;
+}
+
+.post-date {
+  font-weight: bold;
+}
+
+.post-short-description {
+  height: 100px;
+  overflow: auto;
+}
+
+.post:last-child {
+  border-bottom: none;
+}
+
+
+
+.tabs-container {
+  margin-left: 30px;
+}
+
+.tab-link {
+  margin-right: 5px;
+  padding: 10px 20px;
+  color: black;
+  display: inline-block;
+  background: white;
+  border-bottom: 1px solid #dee2e6;
+  box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
+  text-decoration: none;
+}
+
+.tab-link.is-active {
+  text-decoration: underline;
+  color: #007bff;
+  background-color: #e7e7e7;
+}
+
+
+
+.tab-link:hover {
+  text-decoration: underline;
+  color: #dc446e;
+  background-color: #e7e7e7;
+}
+
+
+
+/* Tab Content */
+.tab-content {
+  background-color: #e7e7e7;
+  padding: 20px;
+}
+
+.comment {
+  border: 1px solid lightgray;
+  background-color: white;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.comment-add {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+.comment-add>* {
+  margin-bottom: 10px;
+}
