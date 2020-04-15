@@ -1,20 +1,59 @@
 // post, comment
 // aici cream un obiect cu ajutorul clasei Post
-const post1 = new Post(1, "alex", "12/03/2020", "Titlu 1", "buna, primul post");
-const post2 = new Post(1, "razvan", "12/03/2020", "Titlu 2", " buna, a doi lea post");
 
-const com1 = new Comment(1, "razvan", "foarte tare")
-const com2 = new Comment(2, "alex", "foarte rau")
+const fetchApi = new FetchApi('http://localhost:3000')
 
-// adaugam comment la un obiect post
-post1.addCommentToList(com1)
-post2.addCommentToList(com2)
+async function displayPosts() {
+  const postsServer = await fetchApi.getPosts();
 
-const listPost = [post1, post2]
+  const listPost = [];
+  for (let i = 0; i < postsServer.length; i++) {
+    const postServer = postsServer[i];
+    const post = new Post(
+      postServer.id,
+      postServer.author,
+      postServer.date,
+      postServer.title,
+      postServer.text
+    );
 
-// afisam posturile in HTML
-for (let i = 0; i < listPost.length; i++) {
+    listPost.push(post)
+  }
+
+  // afisam posturile in HTML
+  for (let i = 0; i < listPost.length; i++) {
     // obtinem reprezentarea postului din HTML
-    const postNode = listPost[i].display();
+    const postNode = listPost[i].displayShort();
     document.getElementById('listOfPost').appendChild(postNode);
+  }
 }
+displayPosts();
+
+
+// callback with promise
+// function callbackDisplayPosts(postsServer) {
+//   const listPost = [];
+//   for (let i = 0; i < postsServer.length; i++) {
+//     const postServer = postsServer[i];
+//     const post = new Post(
+//       postServer.id,
+//       postServer.author,
+//       postServer.date,
+//       postServer.title,
+//       postServer.text
+//     );
+
+//     listPost.push(post)
+//   }
+
+
+//   // afisam posturile in HTML
+//   for (let i = 0; i < listPost.length; i++) {
+//     // obtinem reprezentarea postului din HTML
+//     const postNode = listPost[i].displayShort();
+//     document.getElementById('listOfPost').appendChild(postNode);
+//   }
+// }
+
+// fetchApi.getPosts().then(callbackDisplayPosts);
+
